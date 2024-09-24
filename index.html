@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedestrian Dead Reckoning for Security Surveillance Using IoT</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+/* Header styling */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensure space between elements */
+    background-color: #2E8B57;
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo styling */
+#header img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Title styling */
+#header h1 {
+    margin: 0;
+    font-size: 20px;
+    flex-grow: 1; /* Make h1 take available space */
+}
+
+/* Syndicate text styling */
+.syndicate {
+    margin-left: auto; /* Push element to the extreme right */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+        /* Controls container styling */
+        #controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        #date-select {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #filter-btn {
+            background-color: #2E8B57;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        #filter-btn:hover {
+            background-color: #1e6b3f;
+        }
+
+        #plot-container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        #button-container {
+            position: absolute;
+            top: 10px;  /* Adjust this value if you want it lower or higher */
+            left: 10px; /* Adjust this value for horizontal position */
+            z-index: 1000; /* Ensure buttons are above the plot */
+        }
+
+        #plot {
+            width: 100%;
+            height: 500px;
+        }
+
+        .play-button, .reset-button {
+            background-color: #2E8B57;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-right: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .reset-button {
+            background-color: #78817c;
+        }
+
+        .play-button:hover, .reset-button:hover {
+            background-color: #1e6b3f;
+        }
+        #plot .hoverlayer .hovertext {
+           /* Ensure text is left-aligned */
+            max-height: 150px; /* Set max height for the popup */
+            overflow-y: auto; /* Make the popup scrollable if content exceeds */
+            padding: 10px; /* Add some padding for better readability */
+            border: 1px solid #ccc; /* Add a light border */
+        }
+     
+    </style>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <!-- Header with Logo and Title -->
+    <div id="header">
+        <img src="file\shared image.jpg" alt="Logo">
+        <h1>Pedestrian Dead Reckoning for Security Surveillance Using IoT</h1> 
+        <div class="syndicate">Syndicate 3</div> <!-- New element added here -->
+    </div>
+
+    <!-- Controls for Date Selection -->
+    <div id="controls">
+        <label for="date-select">Select Date:</label>
+        <input type="date" id="date-select">
+        <button id="filter-btn">Show Data</button>
+    </div>
+    
+    <!-- Div for Plotly Chart with compact styling -->
+    <div id="plot-container">
+        <div id="button-container">
+            <button class="play-button">Play</button>
+            <button class="reset-button">Reset</button>
+        </div>
+        <div id="plot"></div>
+    </div>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="file.js"></script>
+</body>
+</html>
