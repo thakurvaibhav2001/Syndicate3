@@ -12,41 +12,40 @@
             margin: 0;
             padding: 0;
         }
-/* Header styling */
-#header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Ensure space between elements */
-    background-color: #2E8B57;
-    color: white;
-    padding: 10px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+        /* Header styling */
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Ensure space between elements */
+            background-color: #2E8B57;
+            color: white;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-/* Logo styling */
-#header img {
-    width: 50px;
-    height: 50px;
-    margin-right: 15px;
-    border-radius: 50%;
-    border: 2px solid white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
+        /* Logo styling */
+        #header img {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
 
-/* Title styling */
-#header h1 {
-    margin: 0;
-    font-size: 20px;
-    flex-grow: 1; /* Make h1 take available space */
-}
+        /* Title styling */
+        #header h1 {
+            margin: 0;
+            font-size: 20px;
+            flex-grow: 1; /* Make h1 take available space */
+        }
 
-/* Syndicate text styling */
-.syndicate {
-    margin-left: auto; /* Push element to the extreme right */
-    font-size: 18px;
-    font-weight: bold;
-}
-
+        /* Syndicate text styling */
+        .syndicate {
+            margin-left: auto; /* Push element to the extreme right */
+            font-size: 18px;
+            font-weight: bold;
+        }
 
         /* Controls container styling */
         #controls {
@@ -56,7 +55,7 @@
             gap: 10px;
             margin-top: 10px;
         }
-        #date-select {
+        #date-select, #start-time, #end-time, #csv-input {
             padding: 8px;
             font-size: 14px;
             border: 1px solid #ccc;
@@ -138,12 +137,22 @@
         <div class="syndicate">Syndicate 3</div> <!-- New element added here -->
     </div>
 
-    <!-- Controls for Date Selection -->
+    <!-- Controls for Date and Time Range Selection -->
     <div id="controls">
+
+        <label for="csv-input">Upload Ideal Path CSV:</label>
+        <input type="file" id="csv-input" accept=".csv">
         <label for="date-select">Select Date:</label>
         <input type="date" id="date-select">
-        <button id="filter-btn">Show Data</button>
-    </div>
+        
+        <label for="start-time">Start Time:</label>
+        <input type="time" id="start-time">
+        
+        <label for="end-time">End Time:</label>
+        <input type="time" id="end-time">
+        
+       
+       </div>
     
     <!-- Div for Plotly Chart with compact styling -->
     <div id="plot-container">
